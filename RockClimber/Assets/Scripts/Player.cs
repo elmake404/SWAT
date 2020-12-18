@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player PlayerMain;
+
     [SerializeField]
     private Rigidbody _rbMain;
     private Camera _cam;
@@ -14,17 +16,15 @@ public class Player : MonoBehaviour
     private float _forceJump;
     [SerializeField]
     private float _speedMoveDown, _speedMoveUp;
-    //[SerializeField]
-    //private bool _isMouseBottom, _isMoveDown, _isMoveUp;
-    private void Start()
+    private void Awake()
     {
+        PlayerMain = this;
         _cam = Camera.main;
     }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //_isMouseBottom = true;
             _startMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
         }
         else if (Input.GetMouseButton(0))
@@ -69,10 +69,6 @@ public class Player : MonoBehaviour
         {
             _direcrionVector = _rbMain.velocity;
             _direcrionVector.y = 0;
-
-            //_isMouseBottom = false;
-            //_isMoveUp = false;
-            //_isMoveDown = false;
         }
     }
     private void FixedUpdate()

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField]
+    private float _speedMove;
     void Start()
     {
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        transform.Translate(Vector3.forward*_speedMove);
     }
 }
