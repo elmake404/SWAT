@@ -20,15 +20,18 @@ public class CameraControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_target.transform.position.y > transform.position.y + _topWindow)
+        if (_target!= null)
         {
-            _cameraPos = new Vector3(transform.position.x, _target.transform.position.y - _topWindow, transform.position.z);
-        }
-        else if (_target.transform.position.y < transform.position.y - _bottomWindow)
-        {
-            _cameraPos = new Vector3(transform.position.x, _target.transform.position.y + _bottomWindow, transform.position.z);
-        }
+            if (_target.transform.position.y > transform.position.y + _topWindow)
+            {
+                _cameraPos = new Vector3(transform.position.x, _target.transform.position.y - _topWindow, transform.position.z);
+            }
+            else if (_target.transform.position.y < transform.position.y - _bottomWindow)
+            {
+                _cameraPos = new Vector3(transform.position.x, _target.transform.position.y + _bottomWindow, transform.position.z);
+            }
 
-        transform.position = Vector3.SmoothDamp(transform.position, _cameraPos, ref velocity, 0.07f);
+            transform.position = Vector3.SmoothDamp(transform.position, _cameraPos, ref velocity, 0.07f);
+        }
     }
 }

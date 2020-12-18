@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1125889507845415244}
   - component: {fileID: 6352661301903352534}
   - component: {fileID: 1604176593874528957}
-  - component: {fileID: 6812261426289058536}
-  - component: {fileID: 2752366930028717956}
+  - component: {fileID: 2295010353623584471}
+  - component: {fileID: 9144712500652432468}
   m_Layer: 8
   m_Name: cornice
   m_TagString: Untagged
@@ -81,7 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6812261426289058536
+--- !u!64 &2295010353623584471
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,8 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 5f2716527b2267a43a11dfede160e8e6, type: 3}
---- !u!114 &2752366930028717956
+  m_Mesh: {fileID: 1932850852031082441, guid: 61b7dc9f78168ac4bb9b3446dcc0a6c1, type: 3}
+--- !u!114 &9144712500652432468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   material: {fileID: 0}
   phase: 0
   thickness: 0
-  m_SourceCollider: {fileID: 6812261426289058536}
+  m_SourceCollider: {fileID: 2295010353623584471}
   m_DistanceField: {fileID: 0}
 --- !u!1 &8639679326730004319
 GameObject:
@@ -123,9 +123,8 @@ GameObject:
   - component: {fileID: 8984010820827971045}
   - component: {fileID: 5404959104743010880}
   - component: {fileID: 7847156087385523850}
-  - component: {fileID: 4825451776022014206}
-  - component: {fileID: 3415936433034739053}
-  - component: {fileID: -1702400423924540736}
+  - component: {fileID: 7853676022110193322}
+  - component: {fileID: 8266155515012393001}
   m_Layer: 8
   m_Name: SM_Bld_OfficeOld_Small_Roof_01
   m_TagString: Untagged
@@ -195,7 +194,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4825451776022014206
+--- !u!65 &7853676022110193322
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,31 +203,18 @@ BoxCollider:
   m_GameObject: {fileID: 8639679326730004319}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 3.3830814, z: 10}
-  m_Center: {x: -5, y: 2.5235033, z: 5}
---- !u!65 &3415936433034739053
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8639679326730004319}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 10.556702, y: 0.5967541, z: 10.556709}
-  m_Center: {x: -5, y: 3.916667, z: 5}
---- !u!114 &-1702400423924540736
+  m_Size: {x: 0.1, y: 0.033830814, z: 0.1}
+  m_Center: {x: -0.05, y: 0.02523503, z: -0.05}
+--- !u!114 &8266155515012393001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8639679326730004319}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
   m_Name: 
@@ -236,5 +222,5 @@ MonoBehaviour:
   material: {fileID: 0}
   phase: 0
   thickness: 0
-  m_SourceCollider: {fileID: 4825451776022014206}
+  m_SourceCollider: {fileID: 7853676022110193322}
   m_DistanceField: {fileID: 0}

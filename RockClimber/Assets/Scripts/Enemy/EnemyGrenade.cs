@@ -13,7 +13,7 @@ public class EnemyGrenade : MonoBehaviour
     private float _timeSpawnGrenade;
 
     void Start()
-    {
+    {        
         _spawnPos = _spline.GetPoint(0);
         StartCoroutine(SpawnGrenade());
     }
@@ -31,4 +31,12 @@ public class EnemyGrenade : MonoBehaviour
             grenade.InitializationSpline(_spline);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "BulletOfJustice")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

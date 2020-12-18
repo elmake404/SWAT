@@ -8,16 +8,22 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private Rigidbody _rbMain;
+    [SerializeField]
+    private Bullet _bullet;
     private Camera _cam;
     [SerializeField]
     private Vector3 _startMosePos, _currentMosePos, _direcrionVector;
+    [SerializeField]
+    private Transform _shotPos, _arm;
+    private GameObject _enemyTarget;
 
     [SerializeField]
-    private float _forceJump;
-    [SerializeField]
-    private float _speedMoveDown, _speedMoveUp;
+    private float _forceJump, _speedShot, _speedMoveDown, _speedMoveUp;
+    private float _constSpeedShot;
+    private bool _isEnemyAtGunpoint;
     private void Awake()
     {
+        _constSpeedShot = _speedShot;
         PlayerMain = this;
         _cam = Camera.main;
     }
@@ -76,6 +82,19 @@ public class Player : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
         _direcrionVector.x = _rbMain.velocity.x;
         _rbMain.velocity = _direcrionVector;
+
+        if (_isEnemyAtGunpoint && Mathf.Round(_rbMain.velocity.y) == 0&&_enemyTarget!=null)
+        {
+            if (_speedShot <= 0)
+            {
+                Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
+                _speedShot = _constSpeedShot;
+            }
+            else
+            {
+                _speedShot -= Time.fixedDeltaTime;
+            }
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -89,6 +108,22 @@ public class Player : MonoBehaviour
         if (other.tag == "Thorns")
         {
             Destroy(gameObject);
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Enemy" && _enemyTarget == null)
+        {
+            _enemyTarget = other.gameObject;
+            _isEnemyAtGunpoint = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            _enemyTarget = null;
+            _isEnemyAtGunpoint = false;
         }
     }
 }
