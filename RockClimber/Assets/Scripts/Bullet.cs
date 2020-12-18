@@ -8,11 +8,11 @@ public class Bullet : MonoBehaviour
     private float _speedMove;
     void Start()
     {
-        
+        Destroy(gameObject, 1);
     }
 
     void FixedUpdate()
     {
-        transform.Translate(Vector3.forward*_speedMove);
+        transform.Translate(Vector3.forward * _speedMove);
     }
 }

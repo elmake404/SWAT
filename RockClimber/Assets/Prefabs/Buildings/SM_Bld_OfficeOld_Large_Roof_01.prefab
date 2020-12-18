@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1414501111859860882}
   - component: {fileID: 6226734407992068389}
   - component: {fileID: 3500307742704439339}
-  - component: {fileID: 3247583200862304968}
-  - component: {fileID: 4953760346607314458}
+  - component: {fileID: 317043085652453618}
+  - component: {fileID: 6407918513711857013}
   m_Layer: 8
   m_Name: cornice
   m_TagString: Untagged
@@ -81,7 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3247583200862304968
+--- !u!64 &317043085652453618
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,8 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 9f78c286a67cbd845b8a21e17ad511f6, type: 3}
---- !u!114 &4953760346607314458
+  m_Mesh: {fileID: 692930361446763049, guid: 9b868c01da432424f9bc4e2e6c98ab51, type: 3}
+--- !u!114 &6407918513711857013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
   material: {fileID: 0}
   phase: 0
   thickness: 0
-  m_SourceCollider: {fileID: 3247583200862304968}
+  m_SourceCollider: {fileID: 317043085652453618}
   m_DistanceField: {fileID: 0}
 --- !u!1 &6475770555715686445
 GameObject:
@@ -123,8 +123,8 @@ GameObject:
   - component: {fileID: 5950767684624730775}
   - component: {fileID: 7294287937445905714}
   - component: {fileID: 4818415587261788664}
-  - component: {fileID: 8181289170869412254}
-  - component: {fileID: -8196787014969805584}
+  - component: {fileID: 8097052135647943807}
+  - component: {fileID: 864133523432515132}
   m_Layer: 8
   m_Name: SM_Bld_OfficeOld_Large_Roof_01
   m_TagString: Untagged
@@ -194,7 +194,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8181289170869412254
+--- !u!65 &8097052135647943807
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,9 +205,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 3.3950691, z: 15}
-  m_Center: {x: -7.5, y: 2.5294976, z: -7.5}
---- !u!114 &-8196787014969805584
+  m_Size: {x: 0.15, y: 0.033950694, z: 0.15}
+  m_Center: {x: -0.074999996, y: 0.02529497, z: -0.074999996}
+--- !u!114 &864133523432515132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,5 +222,5 @@ MonoBehaviour:
   material: {fileID: 0}
   phase: 0
   thickness: 0
-  m_SourceCollider: {fileID: 8181289170869412254}
+  m_SourceCollider: {fileID: 8097052135647943807}
   m_DistanceField: {fileID: 0}

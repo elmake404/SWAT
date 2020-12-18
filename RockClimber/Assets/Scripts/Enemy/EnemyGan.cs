@@ -19,34 +19,43 @@ public class EnemyGan : MonoBehaviour
         _constDelayShot = _delayShot;
         _player = Player.PlayerMain;
     }
-
     void FixedUpdate()
     {
-        if (!_isAtGunpoint)
+        if (_player!=null)
         {
-            Quaternion rot = Quaternion.LookRotation(_player.transform.position - transform.position);
-            _arm.rotation = Quaternion.Slerp(_arm.rotation, rot, _speedRot);
-            if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit))
+            if (!_isAtGunpoint)
             {
-                if (_hit.collider.tag == "Player")
+                Quaternion rot = Quaternion.LookRotation(_player.transform.position - transform.position);
+                _arm.rotation = Quaternion.Slerp(_arm.rotation, rot, _speedRot);
+                if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit))
                 {
-                    _isAtGunpoint = true;
+                    if (_hit.collider.tag == "Player")
+                    {
+                        _isAtGunpoint = true;
+                    }
                 }
-            }
-        }
-        else
-        {
-            if (_delayShot<=0)
-            {
-                Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
-                _isAtGunpoint = false;
-                _delayShot = _constDelayShot;
             }
             else
             {
-                _delayShot -= Time.fixedDeltaTime;
+                if (_delayShot <= 0)
+                {
+                    Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
+                    _isAtGunpoint = false;
+                    _delayShot = _constDelayShot;
+                }
+                else
+                {
+                    _delayShot -= Time.fixedDeltaTime;
+                }
             }
+
         }
     }
- 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "BulletOfJustice")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

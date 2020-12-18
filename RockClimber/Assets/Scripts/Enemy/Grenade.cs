@@ -14,7 +14,7 @@ public class Grenade : MonoBehaviour
     private float _speed, _explosionRadius;
     void Start()
     {
-        
+        _sphereCollider.enabled = false;
     }
 
     void FixedUpdate()
@@ -27,6 +27,8 @@ public class Grenade : MonoBehaviour
         else
         {
             _sphereCollider.radius = _explosionRadius;
+            _sphereCollider.enabled = true;
+
             Destroy(gameObject,0.5f);
         }
     }
