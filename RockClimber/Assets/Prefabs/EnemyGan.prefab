@@ -52,6 +52,9 @@ MonoBehaviour:
   _bullet: {fileID: 5724475891886726384, guid: 8f709eb57d5a9f94783f298194c84b58, type: 3}
   _speedRot: 0.01
   _delayShot: 0.5
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1335
 --- !u!136 &7590016774885596119
 CapsuleCollider:
   m_ObjectHideFlags: 0

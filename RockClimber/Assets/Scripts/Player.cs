@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 2)
         {
             _rbMain.velocity = (transform.up * _forceJump);
         }

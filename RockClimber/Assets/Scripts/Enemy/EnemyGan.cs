@@ -14,6 +14,8 @@ public class EnemyGan : MonoBehaviour
     private float _speedRot, _delayShot;
     private float _constDelayShot;
     private bool _isAtGunpoint=false;
+    [SerializeField]
+    private LayerMask _layerMask;
     void Start()
     {
         _constDelayShot = _delayShot;
@@ -27,7 +29,7 @@ public class EnemyGan : MonoBehaviour
             {
                 Quaternion rot = Quaternion.LookRotation(_player.transform.position - transform.position);
                 _arm.rotation = Quaternion.Slerp(_arm.rotation, rot, _speedRot);
-                if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit))
+                if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit,9))
                 {
                     if (_hit.collider.tag == "Player")
                     {

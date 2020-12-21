@@ -17,11 +17,6 @@ public class EnemyGrenade : MonoBehaviour
         _spawnPos = _spline.GetPoint(0);
         StartCoroutine(SpawnGrenade());
     }
-
-    void Update()
-    {
-        
-    }
     private IEnumerator SpawnGrenade()
     {
         while (true)
@@ -36,6 +31,7 @@ public class EnemyGrenade : MonoBehaviour
         if (other.tag == "BulletOfJustice")
         {
             Destroy(gameObject);
+            _spline.transform.SetParent(null);
         }
     }
 
