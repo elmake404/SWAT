@@ -15,4 +15,12 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(Vector3.forward * _speedMove);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag =="Wall")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
