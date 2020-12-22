@@ -13,7 +13,7 @@ public class EnemyGan : MonoBehaviour
     [SerializeField]
     private float _speedRot, _delayShot;
     private float _constDelayShot;
-    private bool _isAtGunpoint=false;
+    private bool _isAtGunpoint = false, _isActivation = false;
     [SerializeField]
     private LayerMask _layerMask;
     void Start()
@@ -23,13 +23,13 @@ public class EnemyGan : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (_player!=null)
+        if (_player != null&&_isActivation)
         {
             if (!_isAtGunpoint)
             {
                 Quaternion rot = Quaternion.LookRotation(_player.transform.position - transform.position);
                 _arm.rotation = Quaternion.Slerp(_arm.rotation, rot, _speedRot);
-                if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit,9))
+                if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit, 9))
                 {
                     if (_hit.collider.tag == "Player")
                     {
@@ -55,6 +55,10 @@ public class EnemyGan : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag =="ActivationZone")
+        {
+            _isActivation = true;
+        }
         if (other.tag == "BulletOfJustice")
         {
             Destroy(gameObject);
