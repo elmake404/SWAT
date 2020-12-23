@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 2294225244009459866}
   m_Layer: 8
   m_Name: Window_1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,10 +189,11 @@ GameObject:
   - component: {fileID: 7098661463423833121}
   - component: {fileID: 3483694033454806512}
   - component: {fileID: 7174625984504025951}
+  - component: {fileID: 7552424629422459098}
   - component: {fileID: 208076736047892098}
   m_Layer: 8
   m_Name: Glass_1
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +272,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09820503, y: 5, z: 14.730755}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &208076736047892098
+--- !u!114 &7552424629422459098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,6 +280,20 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2637641223820742374}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b5673f5b3afed9449e6064896177fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 3483694033454806512}
+  _collider: {fileID: 7174625984504025951}
+--- !u!114 &208076736047892098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637641223820742374}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
   m_Name: 
@@ -303,7 +318,7 @@ GameObject:
   - component: {fileID: 451187882571112007}
   m_Layer: 8
   m_Name: Window_4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,7 +429,7 @@ GameObject:
   - component: {fileID: 6763379282889280670}
   m_Layer: 8
   m_Name: Window_3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -941,7 +956,7 @@ GameObject:
   - component: {fileID: 3126352571307742687}
   m_Layer: 8
   m_Name: Window_2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1049,10 +1064,11 @@ GameObject:
   - component: {fileID: 4030662815928918818}
   - component: {fileID: 3005321194432367537}
   - component: {fileID: 2796947796756115945}
+  - component: {fileID: 3100187528821861918}
   - component: {fileID: 2035921277705458481}
   m_Layer: 8
   m_Name: Glass_1_1
-  m_TagString: Untagged
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1131,7 +1147,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09820503, y: 5, z: 14.730755}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2035921277705458481
+--- !u!114 &3100187528821861918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1139,6 +1155,20 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8894913265987511347}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b5673f5b3afed9449e6064896177fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 3005321194432367537}
+  _collider: {fileID: 2796947796756115945}
+--- !u!114 &2035921277705458481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894913265987511347}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
   m_Name: 

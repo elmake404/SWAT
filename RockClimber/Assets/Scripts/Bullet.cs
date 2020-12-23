@@ -14,6 +14,18 @@ public class Bullet : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(Vector3.forward * _speedMove);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position,-transform.forward,out hit,10))
+        {
+            if (hit.collider.tag == "Wall")
+            {
+                Destroy(gameObject);
+            }
+            else if (hit.collider.tag == "Glass")
+            {
+                hit.collider.GetComponent<Glass>().Breaking();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +33,10 @@ public class Bullet : MonoBehaviour
         if (other.tag =="Wall")
         {
             Destroy(gameObject);
+        }
+        if (other.tag =="Glass")
+        {
+            other.GetComponent<Glass>().Breaking();
         }
     }
 }

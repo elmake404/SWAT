@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Wall
   - ActivationZone
+  - Glass
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Player
   - Floor
   - ShotPlayer
-  - Grenade
+  - Enemy
   - 
   - 
   - 

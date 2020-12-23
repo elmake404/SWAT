@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 7423909795336476091}
   - component: {fileID: 5984839482713662105}
   - component: {fileID: 8459671735107876049}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyGrenade
   m_TagString: Enemy
   m_Icon: {fileID: 0}

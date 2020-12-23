@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5399503540288987607}
   m_Layer: 0
   m_Name: BulletOfJustice
-  m_TagString: BulletOfJustice
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
