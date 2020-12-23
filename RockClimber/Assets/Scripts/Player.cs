@@ -95,10 +95,16 @@ public class Player : MonoBehaviour
                 _speedShot -= Time.fixedDeltaTime;
             }
         }
+        if (_enemyTarget != null)
+        {
+            Vector3 PosEnemy = _enemyTarget.transform.position;
+            PosEnemy.y = transform.position.y;
+            _arm.LookAt(PosEnemy);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 2)
+        if (collision.gameObject.layer == 8)
         {
             _rbMain.velocity = (transform.up * _forceJump);
         }
@@ -107,6 +113,7 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "Thorns")
         {
+            Debug.Log(other.name);
             Destroy(gameObject);
         }
     }

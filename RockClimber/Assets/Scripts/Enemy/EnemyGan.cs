@@ -20,39 +20,49 @@ public class EnemyGan : MonoBehaviour
     {
         _constDelayShot = _delayShot;
         _player = Player.PlayerMain;
+        StartCoroutine(StartShooting());
     }
-    void FixedUpdate()
-    {
-        if (_player != null&&_isActivation)
-        {
-            if (!_isAtGunpoint)
-            {
-                Quaternion rot = Quaternion.LookRotation(_player.transform.position - transform.position);
-                _arm.rotation = Quaternion.Slerp(_arm.rotation, rot, _speedRot);
-                if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit, 9))
-                {
-                    if (_hit.collider.tag == "Player")
-                    {
-                        _isAtGunpoint = true;
-                    }
-                }
-            }
-            else
-            {
-                if (_delayShot <= 0)
-                {
-                    Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
-                    _isAtGunpoint = false;
-                    _delayShot = _constDelayShot;
-                }
-                else
-                {
-                    _delayShot -= Time.fixedDeltaTime;
-                }
-            }
+    //void FixedUpdate()
+    //{
+    //    //if (_player != null/*&&_isActivation*/)
+    //    //{
+    //        if (!_isAtGunpoint)
+    //        {
+    //            Quaternion rot = Quaternion.LookRotation(_player.transform.position - transform.position);
+    //            _arm.rotation = Quaternion.Slerp(_arm.rotation, rot, _speedRot);
+    //            if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit, 9))
+    //            {
+    //                if (_hit.collider.tag == "Player")
+    //                {
+    //                    _isAtGunpoint = true;
+    //                }
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (_delayShot <= 0)
+    //            {
+    //                Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
+    //                _isAtGunpoint = false;
+    //                _delayShot = _constDelayShot;
+    //            }
+    //            else
+    //            {
+    //                _delayShot -= Time.fixedDeltaTime;
+    //            }
+    //        }
 
+    //    //}
+    //}
+    private IEnumerator StartShooting()
+    {
+        while (true)
+        {
+            Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
+            yield return new WaitForSeconds(_delayShot);
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag =="ActivationZone")
