@@ -8,6 +8,8 @@ public class Glass : MonoBehaviour
     private MeshRenderer _meshRenderer;
     [SerializeField]
     private Collider _collider;
+    [SerializeField]
+    private ParticleSystem _FbxShards;
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.tag=="Player")
@@ -18,6 +20,7 @@ public class Glass : MonoBehaviour
     public void Breaking()
     {
         _meshRenderer.enabled = false;
-        _collider.isTrigger=true;
+        _collider.enabled = false;
+        _FbxShards.Play();
     }
 }
