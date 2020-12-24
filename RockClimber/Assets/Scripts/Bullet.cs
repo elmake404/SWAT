@@ -21,9 +21,14 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            else if (hit.collider.tag == "Glass")
+            else if (hit.collider.tag == "Head")
             {
-                hit.collider.GetComponent<Glass>().Breaking();
+                hit.collider.GetComponentInParent<EnemyLife>().Headshot();
+            }
+            else if (hit.collider.tag == "Enemy")
+            {
+                hit.collider.GetComponent<EnemyLife>().BodyShot();
+                Destroy(gameObject);
             }
         }
     }
@@ -34,9 +39,20 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.tag =="Glass")
+        if (other.tag == "Head")
         {
-            other.GetComponent<Glass>().Breaking();
+            other.GetComponentInParent<EnemyLife>().Headshot();
+            Destroy(gameObject);
         }
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyLife>().BodyShot();
+            Destroy(gameObject);
+        }
+
+        //if (other.tag =="Glass")
+        //{
+        //    other.GetComponent<Glass>().Breaking();
+        //}
     }
 }

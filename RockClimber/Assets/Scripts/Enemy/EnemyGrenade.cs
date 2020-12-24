@@ -15,6 +15,8 @@ public class EnemyGrenade : MonoBehaviour
     void Start()
     {        
         _spawnPos = _spline.GetPoint(0);
+        _spline.transform.SetParent(null);
+
         StartCoroutine(SpawnGrenade());
     }
     private IEnumerator SpawnGrenade()
@@ -26,13 +28,12 @@ public class EnemyGrenade : MonoBehaviour
             grenade.InitializationSpline(_spline);
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "BulletOfJustice")
-        {
-            Destroy(gameObject);
-            _spline.transform.SetParent(null);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "BulletOfJustice")
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
 }

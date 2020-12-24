@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5587088993353869704}
   - component: {fileID: 8786072483996497501}
   - component: {fileID: 2657429472505982331}
-  - component: {fileID: 5724475891886726384}
+  - component: {fileID: -2206989064891730648}
   m_Layer: 0
   m_Name: BullsetEnemu
-  m_TagString: Thorns
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 50, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5724475891886726384
+--- !u!114 &-2206989064891730648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2721480372037639403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05addf79adba533439c4173bbb577317, type: 3}
+  m_Script: {fileID: 11500000, guid: 81ba417a1db0f6d4ea54017cb341005c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speedMove: 0.5

@@ -7,7 +7,7 @@ public class EnemyGan : MonoBehaviour
     [SerializeField]
     private Transform _shotPos, _arm;
     [SerializeField]
-    private Bullet _bullet;
+    private BulletEnemy _bullet;
     private Player _player;
     private RaycastHit _hit;
     [SerializeField]
@@ -68,10 +68,6 @@ public class EnemyGan : MonoBehaviour
         if (other.tag =="ActivationZone")
         {
             _isActivation = true;
-        }
-        if (other.tag == "BulletOfJustice")
-        {
-            Destroy(gameObject);
         }
     }
 }
