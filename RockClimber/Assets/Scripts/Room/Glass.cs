@@ -23,4 +23,10 @@ public class Glass : MonoBehaviour
         _collider.enabled = false;
         _FbxShards.Play();
     }
+    [ContextMenu("GetElevent")]
+    private void GetElevent()
+    {
+        _collider = GetComponent<Collider>();
+        _meshRenderer = GetComponent<MeshRenderer>();
+    }
 }
