@@ -42,8 +42,8 @@ public class Player : MonoBehaviour
 
             _currentMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
 
-            //if (Mathf.Abs(_startMosePos.y - _currentMosePos.y) >= 0.01f)
-            //{
+            if (Mathf.Abs(_startMosePos.y - _currentMosePos.y) >= 0.01f)
+            {
 
                 if (Mathf.Abs((_currentMosePos.y - _startMosePos.y) * 7) > 1)
                 {
@@ -56,8 +56,8 @@ public class Player : MonoBehaviour
 
                 if (((_currentMosePos.y - _startMosePos.y) * 7) <= 0)
                 {
-                    Debug.Log(1);
-                    Y = /*((_currentMosePos.y - _startMosePos.y) * 7)*/ -1* _speedMoveDown;
+                    //Debug.Log();
+                    Y = ((_currentMosePos.y - _startMosePos.y) * 7) * _speedMoveDown;
                 }
                 else
                 {
@@ -65,11 +65,11 @@ public class Player : MonoBehaviour
                 }
 
                 _direcrionVector = new Vector3(0, Y, 0);
-            //}
-            //else
-            //{
-            //    _direcrionVector = _rbMain.velocity;
-            //}
+            }
+            else
+            {
+                _direcrionVector = _rbMain.velocity;
+            }
 
         }
         else

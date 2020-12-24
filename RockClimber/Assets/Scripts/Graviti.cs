@@ -9,7 +9,7 @@ public class Graviti : MonoBehaviour
     private Rigidbody _rbMain;
     [SerializeField]
     private Vector3 _directionGraviti;
-    void Start()
+    private void Start()
     {
         if (_directionGraviti==Vector3.zero)
         {
@@ -21,14 +21,18 @@ public class Graviti : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-
         _rbMain.AddForce(_directionGraviti*9.8f,ForceMode.Acceleration);
+    }
+    public void RevertGraviti()
+    {
+        _directionGraviti *= -1;
     }
     [ContextMenu("GetRigidbody")]
     public void GetRigidbody()
     {
         _rbMain = GetComponent<Rigidbody>();
     }
+
 }

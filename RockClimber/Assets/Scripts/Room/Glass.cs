@@ -8,10 +8,16 @@ public class Glass : MonoBehaviour
     private MeshRenderer _meshRenderer;
     [SerializeField]
     private Collider _collider;
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag=="Player")
+    //    {
+    //        other.GetComponent<Graviti>().RevertGraviti();
+    //    }
+    //}
     public void Breaking()
     {
         _meshRenderer.enabled = false;
         _collider.isTrigger=true;
-        tag = "Thorns";
     }
 }
