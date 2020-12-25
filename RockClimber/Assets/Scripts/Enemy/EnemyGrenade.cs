@@ -6,6 +6,8 @@ public class EnemyGrenade : MonoBehaviour
 {
     [SerializeField]
     private BezierSpline _spline;
+    [SerializeField]
+    private Animator _animator;
     private Vector3 _spawnPos;
     [SerializeField]
     private Grenade _grenade;
@@ -21,11 +23,18 @@ public class EnemyGrenade : MonoBehaviour
     }
     private IEnumerator SpawnGrenade()
     {
+        yield return new WaitForSeconds(0.5f);
+
         while (true)
         {
-            yield return new WaitForSeconds(_timeSpawnGrenade);
+            _animator.SetBool("Throw", true);
+            yield return new WaitForSeconds(0.7f);
+            _animator.SetBool("Throw", false);
+
             Grenade grenade = Instantiate(_grenade,_spawnPos,Quaternion.identity);
             grenade.InitializationSpline(_spline);
+            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(_timeSpawnGrenade);
         }
     }
     //private void OnTriggerEnter(Collider other)

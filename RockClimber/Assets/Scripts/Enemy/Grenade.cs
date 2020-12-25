@@ -7,8 +7,13 @@ public class Grenade : MonoBehaviour
     [SerializeField]
     private RaycastHit _hit;
     [SerializeField]
+    private ParticleSystem _explosion;
+    [SerializeField]
     private SphereCollider _sphereCollider;
+    [SerializeField]
+    private MeshRenderer _mesh;
     private BezierSpline _spline;
+
     private float _pointPos;
     [SerializeField]
     private float _speed, _explosionRadius;
@@ -24,12 +29,13 @@ public class Grenade : MonoBehaviour
             transform.position = _spline.GetPoint(_pointPos);
             _pointPos += _speed;
         }
-        else
+        else if(!_sphereCollider.enabled)
         {
             _sphereCollider.radius = _explosionRadius;
             _sphereCollider.enabled = true;
-
-            Destroy(gameObject,0.5f);
+            _mesh.enabled = false;
+            _explosion.Play();
+            Destroy(gameObject,1f);
         }
     }
     private void OnDrawGizmosSelected()
