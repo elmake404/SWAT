@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyGan : MonoBehaviour
 {
     [SerializeField]
-    private Transform _shotPos, _arm;
+    private Transform _shotPos, _shotgunMod, _shotgun;
+    [SerializeField]
+    private Animator _animator;
     [SerializeField]
     private BulletEnemy _bullet;
     private Player _player;
@@ -22,43 +24,55 @@ public class EnemyGan : MonoBehaviour
         _player = Player.PlayerMain;
         StartCoroutine(StartShooting());
     }
-    //void FixedUpdate()
-    //{
-    //    //if (_player != null/*&&_isActivation*/)
-    //    //{
-    //        if (!_isAtGunpoint)
-    //        {
-    //            Quaternion rot = Quaternion.LookRotation(_player.transform.position - transform.position);
-    //            _arm.rotation = Quaternion.Slerp(_arm.rotation, rot, _speedRot);
-    //            if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit, 9))
-    //            {
-    //                if (_hit.collider.tag == "Player")
-    //                {
-    //                    _isAtGunpoint = true;
-    //                }
-    //            }
-    //        }
-    //        else
-    //        {
-    //            if (_delayShot <= 0)
-    //            {
-    //                Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
-    //                _isAtGunpoint = false;
-    //                _delayShot = _constDelayShot;
-    //            }
-    //            else
-    //            {
-    //                _delayShot -= Time.fixedDeltaTime;
-    //            }
-    //        }
+    void FixedUpdate()
+    {
+        _shotgun.transform.SetPositionAndRotation( _shotgunMod.transform.position, _shotgunMod.transform.rotation);
 
-    //    //}
-    //}
+            #region Old
+        ////if (_player != null/*&&_isActivation*/)
+        ////{
+        //if (!_isAtGunpoint)
+        //{
+        //    Quaternion rot = Quaternion.LookRotation(_player.transform.position - transform.position);
+        //    _arm.rotation = Quaternion.Slerp(_arm.rotation, rot, _speedRot);
+        //    if (Physics.Raycast(_shotPos.position, _shotPos.forward, out _hit, 9))
+        //    {
+        //        if (_hit.collider.tag == "Player")
+        //        {
+        //            _isAtGunpoint = true;
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    if (_delayShot <= 0)
+        //    {
+        //        Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
+        //        _isAtGunpoint = false;
+        //        _delayShot = _constDelayShot;
+        //    }
+        //    else
+        //    {
+        //        _delayShot -= Time.fixedDeltaTime;
+        //    }
+        //}
+
+        ////}
+        #endregion
+    }
     private IEnumerator StartShooting()
     {
+        yield return new WaitForSeconds(0.5f);
+
         while (true)
         {
-            Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
+            _animator.SetBool("Shot",true);
+            yield return new WaitForSeconds(1f);
+            _animator.SetBool("Shot", false);
+
+            Quaternion RotBullet = Quaternion.Euler(_shotPos.eulerAngles.x, _shotPos.eulerAngles.y,0);
+            Instantiate(_bullet, _shotPos.position, RotBullet);
+            yield return new WaitForSeconds(1.533f);
             yield return new WaitForSeconds(_delayShot);
         }
     }
