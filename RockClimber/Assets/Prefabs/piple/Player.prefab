@@ -525,7 +525,7 @@ MonoBehaviour:
   _feetCollider: {fileID: 5653608697583907640}
   _forceJump: 20
   _speedShot: 0.25
-  _speedMoveDown: 13
+  _speedMoveDown: 25
   _speedMoveUp: 6.5
 --- !u!54 &1395772203182719398
 Rigidbody:

@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
         _direcrionVector.x = _rbMain.velocity.x;
         _rbMain.velocity = _direcrionVector;
 
-        if (/*_isEnemyAtGunpoint && */Mathf.Round(_rbMain.velocity.y) == 0 /*&& _enemyTarget != null*/)
+        if (_isEnemyAtGunpoint /*Mathf.Round(_rbMain.velocity.y) == 0*/ && _enemyTarget != null)
         {
             if (_speedShot <= 0)
             {
