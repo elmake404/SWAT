@@ -1344,10 +1344,60 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3954550036902093819}
     m_Modifications:
+    - target: {fileID: 3393742762550400373, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393742762550400373, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6676819110551649482, guid: eefc952caa78fe24f81e95a3d7032116,
         type: 3}
       propertyPath: m_Name
       value: Particle System 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055158250502857062, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055158250502857062, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055158250502857062, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: VelocityModule.z.scalar
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055158250502857062, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055158250502857062, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055158250502857062, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055158250502857062, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 2.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 8055158250502857062, guid: eefc952caa78fe24f81e95a3d7032116,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eefc952caa78fe24f81e95a3d7032116, type: 3}
