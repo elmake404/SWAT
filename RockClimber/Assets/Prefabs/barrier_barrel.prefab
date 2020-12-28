@@ -108,10 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a064b3bffca708440a1623847e50da23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collider: {fileID: 1849587063869330851}
   _explosion: {fileID: 5795281310278211780}
   _meshRenderer: {fileID: 23137875583604886}
   radius: 5
-  force: 1000
+  force: 20000
 --- !u!1001 &3095175405910972165
 PrefabInstance:
   m_ObjectHideFlags: 0

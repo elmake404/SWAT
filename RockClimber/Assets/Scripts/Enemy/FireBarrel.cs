@@ -5,6 +5,8 @@ using UnityEngine;
 public class FireBarrel : MonoBehaviour
 {
     [SerializeField]
+    private Collider _collider;
+    [SerializeField]
     private ParticleSystem _explosion;
     [SerializeField]
     private MeshRenderer _meshRenderer;
@@ -16,6 +18,7 @@ public class FireBarrel : MonoBehaviour
     {
         if (other.tag == "BulletOfJustice")
         {
+            _collider.enabled = false;
             Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
             foreach (var c in colliders)
             {
