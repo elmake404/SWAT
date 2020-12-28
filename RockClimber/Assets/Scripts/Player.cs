@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     private Vector3 _startMosePos, _currentMosePos, _direcrionVector;
     [SerializeField]
     private Transform _shotPos, _arm;
+    [SerializeField]
+    private Collider _feetCollider;
     private GameObject _enemyTarget;
 
     [SerializeField]
@@ -84,7 +86,7 @@ public class Player : MonoBehaviour
         _direcrionVector.x = _rbMain.velocity.x;
         _rbMain.velocity = _direcrionVector;
 
-        if (_isEnemyAtGunpoint && Mathf.Round(_rbMain.velocity.y) == 0&&_enemyTarget!=null)
+        if (_isEnemyAtGunpoint && Mathf.Round(_rbMain.velocity.y) == 0 && _enemyTarget != null)
         {
             if (_speedShot <= 0)
             {
@@ -114,7 +116,7 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "Thorns")
         {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             Destroy(gameObject);
         }
     }
@@ -133,5 +135,9 @@ public class Player : MonoBehaviour
             _enemyTarget = null;
             _isEnemyAtGunpoint = false;
         }
+    }
+    public Collider GetFeet()
+    {
+        return _feetCollider;
     }
 }
