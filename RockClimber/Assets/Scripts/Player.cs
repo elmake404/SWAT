@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
             }
 
             _currentMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
-            float window = (_startMosePos.y - _currentMosePos.y) > 0 ? 0.05f : -0.05f;
+            float window = (_startMosePos.y - _currentMosePos.y) > 0 ? 0.015f : -0.015f;
 
             Vector3 StartPosMose = _startMosePos;
             StartPosMose.y -= window;
