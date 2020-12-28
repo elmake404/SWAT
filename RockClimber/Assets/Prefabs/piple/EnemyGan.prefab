@@ -605,6 +605,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: cop
       objectReference: {fileID: 0}
+    - target: {fileID: 1607638084989626, guid: 7ad1676b90fb74eb0870cccbcbc1d8e9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704137009487866, guid: 7ad1676b90fb74eb0870cccbcbc1d8e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4738850977905492, guid: 7ad1676b90fb74eb0870cccbcbc1d8e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

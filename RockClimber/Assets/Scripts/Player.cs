@@ -5,16 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player PlayerMain;
-
+    
     [SerializeField]
     private Rigidbody _rbMain;
     [SerializeField]
     private Bullet _bullet;
     private Camera _cam;
-    [SerializeField]
-    private Vector3 _startMosePos, _currentMosePos, _direcrionVector;
+    private Vector3 _startMosePos, _currentMosePos, _direcrionVector,_startPosPlayer;
     [SerializeField]
     private Transform _shotPos, _arm;
+    [SerializeField]
+    private Collider _feetCollider;
     private GameObject _enemyTarget;
 
     [SerializeField]
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         _constSpeedShot = _speedShot;
         PlayerMain = this;
         _cam = Camera.main;
+        _startPosPlayer = transform.position;
     }
     private void Update()
     {
@@ -80,11 +82,12 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        ControlPosition();
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
         _direcrionVector.x = _rbMain.velocity.x;
         _rbMain.velocity = _direcrionVector;
 
-        if (_isEnemyAtGunpoint && Mathf.Round(_rbMain.velocity.y) == 0&&_enemyTarget!=null)
+        if (_isEnemyAtGunpoint && Mathf.Round(_rbMain.velocity.y) == 0 && _enemyTarget != null)
         {
             if (_speedShot <= 0)
             {
@@ -103,6 +106,15 @@ public class Player : MonoBehaviour
             _arm.LookAt(PosEnemy);
         }
     }
+    private void ControlPosition()
+    {
+        if (transform.position.y > _startPosPlayer.y)
+        {
+            Vector3 Pos = transform.position;
+            Pos.y = _startPosPlayer.y;
+            transform.position = Vector3.MoveTowards(transform.position,Pos,0.7f);
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 8)
@@ -114,7 +126,7 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "Thorns")
         {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             Destroy(gameObject);
         }
     }
@@ -133,5 +145,9 @@ public class Player : MonoBehaviour
             _enemyTarget = null;
             _isEnemyAtGunpoint = false;
         }
+    }
+    public Collider GetFeet()
+    {
+        return _feetCollider;
     }
 }

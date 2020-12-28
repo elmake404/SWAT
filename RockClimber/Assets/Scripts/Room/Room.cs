@@ -6,16 +6,16 @@ public class Room : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other == Player.PlayerMain.GetFeet())
         {
-            other.GetComponent<Graviti>().RevertGraviti();
+            other.GetComponentInParent<Graviti>().RevertGraviti();
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other == Player.PlayerMain.GetFeet())
         {
-            other.GetComponent<Graviti>().RevertGraviti();
+            other.GetComponentInParent<Graviti>().RevertGraviti();
         }
     }
 }

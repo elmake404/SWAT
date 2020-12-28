@@ -52,7 +52,7 @@ public class Grenade : MonoBehaviour
     {
         if (other.tag =="Player")
         {
-            Destroy(other.gameObject);
+            Destroy(other.transform.parent.gameObject);
         }
     }
 }
