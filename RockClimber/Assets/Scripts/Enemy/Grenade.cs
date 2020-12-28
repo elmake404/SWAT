@@ -50,9 +50,9 @@ public class Grenade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag =="Player")
-        {
-            Destroy(other.transform.parent.gameObject);
-        }
+        //if (other.tag =="Player")
+        //{
+        //    Destroy(other.transform.parent.gameObject);
+        //}
     }
 }

@@ -19,11 +19,14 @@ public class FireBarrel : MonoBehaviour
             Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
             foreach (var c in colliders)
             {
-                if (c.tag == "PlayerAdditional")
+                if (c.tag=="Enemy")
                 {
-                    //var Player = c.GetComponent<PlayerAdditional>();
-                    //Player.Deactivation();
-                    //Player.rd.AddExplosionForce(force, transform.position, radius);
+                    var enemy = c.GetComponent<EnemyLife>();
+                    if (enemy.Life)
+                    {
+                        enemy.Death();
+                        enemy.GetRigidbody().AddExplosionForce(force, transform.position, radius);
+                    }
                 }
             }
             _explosion.Play();

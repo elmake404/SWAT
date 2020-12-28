@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyGrenade : MonoBehaviour
 {
     [SerializeField]
+    private EnemyLife _lifeMain;
+
+    [SerializeField]
     private BezierSpline _spline;
     [SerializeField]
     private Animator _animator;
@@ -20,6 +23,13 @@ public class EnemyGrenade : MonoBehaviour
         _spline.transform.SetParent(null);
 
         StartCoroutine(SpawnGrenade());
+    }
+    private void FixedUpdate()
+    {
+        if (!_lifeMain.Life)
+        {
+            Death();
+        }
     }
     private IEnumerator SpawnGrenade()
     {
@@ -37,6 +47,13 @@ public class EnemyGrenade : MonoBehaviour
             yield return new WaitForSeconds(_timeSpawnGrenade);
         }
     }
+    private void Death()
+    {
+        _animator.enabled = false;
+        //Debug.Log(_animator.enabled);
+        Destroy(gameObject);
+    }
+
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.tag == "BulletOfJustice")

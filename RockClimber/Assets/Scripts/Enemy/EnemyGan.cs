@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyGan : MonoBehaviour
 {
     [SerializeField]
+    private EnemyLife _lifeMain;
+    [SerializeField]
     private Transform _shotPos, _shotgunMod, _shotgun;
     [SerializeField]
     private Animator _animator;
@@ -27,7 +29,10 @@ public class EnemyGan : MonoBehaviour
     void FixedUpdate()
     {
         _shotgun.transform.SetPositionAndRotation( _shotgunMod.transform.position, _shotgunMod.transform.rotation);
-
+        if (!_lifeMain.Life)
+        {
+            Death();
+        }
             #region Old
         ////if (_player != null/*&&_isActivation*/)
         ////{
@@ -76,7 +81,13 @@ public class EnemyGan : MonoBehaviour
             yield return new WaitForSeconds(_delayShot);
         }
     }
-
+    private void Death()
+    {
+        _animator.enabled = false;
+        _shotgun.gameObject.SetActive(false);
+        //Debug.Log(_animator.enabled);
+        Destroy(gameObject);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag =="ActivationZone")

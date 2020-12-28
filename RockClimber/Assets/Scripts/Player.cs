@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private Transform _shotPos, _arm;
     [SerializeField]
     private Collider _feetCollider;
+    [SerializeField]
     private GameObject _enemyTarget;
 
     [SerializeField]
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
         _direcrionVector.x = _rbMain.velocity.x;
         _rbMain.velocity = _direcrionVector;
 
-        if (_isEnemyAtGunpoint /*Mathf.Round(_rbMain.velocity.y) == 0*/ && _enemyTarget != null)
+        if (/*_isEnemyAtGunpoint*/ Mathf.Round(_rbMain.velocity.y) == 0 /*&& _enemyTarget != null*/)
         {
             if (_speedShot <= 0)
             {
@@ -105,15 +106,6 @@ public class Player : MonoBehaviour
             Vector3 PosEnemy = _enemyTarget.transform.position;
             PosEnemy.y = transform.position.y;
             _arm.LookAt(PosEnemy);
-        }
-    }
-    private void ControlPosition()
-    {
-        if (transform.position.y > _startPosPlayer.y)
-        {
-            Vector3 Pos = transform.position;
-            Pos.y = _startPosPlayer.y;
-            transform.position = Vector3.MoveTowards(transform.position,Pos,0.7f);
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -133,7 +125,8 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Enemy" && _enemyTarget == null)
+        if (other.gameObject.layer == 12  && (_enemyTarget == null
+            ||(_enemyTarget.transform.position-transform.position).sqrMagnitude> (other.transform.position - transform.position).sqrMagnitude))
         {
             _enemyTarget = other.gameObject;
             _isEnemyAtGunpoint = true;
@@ -141,12 +134,22 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.gameObject.layer == 12)
         {
             _enemyTarget = null;
             _isEnemyAtGunpoint = false;
         }
     }
+    private void ControlPosition()
+    {
+        if (transform.position.y > _startPosPlayer.y)
+        {
+            Vector3 Pos = transform.position;
+            Pos.y = _startPosPlayer.y;
+            transform.position = Vector3.MoveTowards(transform.position, Pos, 0.7f);
+        }
+    }
+
     public Collider GetFeet()
     {
         return _feetCollider;
