@@ -202,6 +202,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5383951826060330110}
     m_Modifications:
+    - target: {fileID: 1242199471761650152, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363992824864351403, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3008928725214350722, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151807959850942009, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447072947672713008, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956881576593694263, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987155953437723436, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286296285486685507, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4641843890088231770, guid: c68140e244d7ead46bbb8de3174bf0af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,6 +301,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FX_AerialExplosion_AC
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641843890866059377, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203173818210192784, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475649927596261043, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7983631220729208156, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056777738422225082, guid: c68140e244d7ead46bbb8de3174bf0af,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68140e244d7ead46bbb8de3174bf0af, type: 3}
