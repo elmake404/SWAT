@@ -43,27 +43,27 @@ public class Player : MonoBehaviour
             }
 
             _currentMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
+            float window = (_startMosePos.y - _currentMosePos.y) > 0 ? 0.05f : -0.05f;
 
-            if (Mathf.Abs(_startMosePos.y - _currentMosePos.y) >= 0.01f)
+            Vector3 StartPosMose = _startMosePos;
+            StartPosMose.y -= window;
+            if (Mathf.Abs((_currentMosePos.y - _startMosePos.y) * 8) > 1)
             {
+                float yStart = ((_currentMosePos.y - _startMosePos.y) > 0 ? 0.125f : -0.125f);
+                _startMosePos.y = _currentMosePos.y - yStart;
+            }
 
-                if (Mathf.Abs((_currentMosePos.y - _startMosePos.y) * 7) > 1)
+            float Y = 0;
+
+            if (Mathf.Abs(_startMosePos.y - _currentMosePos.y) >= 0.015f)
+            {
+                if (((_currentMosePos.y - StartPosMose.y) * 8) <= 0)
                 {
-
-                    float yStart = ((_currentMosePos.y - _startMosePos.y) > 0 ? 0.14f : -0.14f);
-                    _startMosePos.y = _currentMosePos.y - yStart;
-                }
-
-                float Y = 0;
-
-                if (((_currentMosePos.y - _startMosePos.y) * 7) <= 0)
-                {
-                    //Debug.Log();
-                    Y = ((_currentMosePos.y - _startMosePos.y) * 7) * _speedMoveDown;
+                    Y = ((_currentMosePos.y - StartPosMose.y) * 8) * _speedMoveDown;
                 }
                 else
                 {
-                    Y = ((_currentMosePos.y - _startMosePos.y) * 7) * _speedMoveUp;
+                    Y = ((_currentMosePos.y - StartPosMose.y) * 8) * _speedMoveUp;
                 }
 
                 _direcrionVector = new Vector3(0, Y, 0);
@@ -71,6 +71,7 @@ public class Player : MonoBehaviour
             else
             {
                 _direcrionVector = _rbMain.velocity;
+                _direcrionVector.y = 0;
             }
 
         }
@@ -87,7 +88,7 @@ public class Player : MonoBehaviour
         _direcrionVector.x = _rbMain.velocity.x;
         _rbMain.velocity = _direcrionVector;
 
-        if (_isEnemyAtGunpoint && Mathf.Round(_rbMain.velocity.y) == 0 && _enemyTarget != null)
+        if (/*_isEnemyAtGunpoint && */Mathf.Round(_rbMain.velocity.y) == 0 /*&& _enemyTarget != null*/)
         {
             if (_speedShot <= 0)
             {

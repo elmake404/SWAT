@@ -286,14 +286,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3060704803635761801}
-  m_LocalRotation: {x: -0.1649279, y: -0.44923675, z: -0.8578056, w: 0.18749571}
+  m_LocalRotation: {x: 0.16383657, y: 0.4388185, z: 0.8634332, w: -0.18729384}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1185372930413761389}
   m_Father: {fileID: 697761689189799570}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 34.015003, y: 277.57, z: -147.97401}
+  m_LocalEulerAnglesHint: {x: -55, y: 371.928, z: -161.748}
 --- !u!33 &3030498185139404569
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -520,9 +520,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rbMain: {fileID: 1395772203182719398}
   _bullet: {fileID: 508638429083515632, guid: 11c98884b2a20114dbe73ea0577e2725, type: 3}
-  _startMosePos: {x: 0, y: 0, z: 0}
-  _currentMosePos: {x: 0, y: 0, z: 0}
-  _direcrionVector: {x: 0, y: 0, z: 0}
   _shotPos: {fileID: 6698370172611945698}
   _arm: {fileID: 697761689189799570}
   _feetCollider: {fileID: 5653608697583907640}
