@@ -9,7 +9,9 @@ public class Glass : MonoBehaviour
     [SerializeField]
     private Collider _collider;
     [SerializeField]
-    private ParticleSystem _FbxShards;
+    private GameObject _brokenGlass;
+    //[SerializeField]
+    //private ParticleSystem _FbxShards;
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.tag=="Player")
@@ -21,7 +23,7 @@ public class Glass : MonoBehaviour
     {
         _meshRenderer.enabled = false;
         _collider.enabled = false;
-        _FbxShards.Play();
+        _brokenGlass.SetActive(true);
     }
     [ContextMenu("GetElevent")]
     private void GetElevent()

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player PlayerMain;
-    
+    [SerializeField]
+    private ParticleSystem _particleShot;
     [SerializeField]
     private Rigidbody _rbMain;
     [SerializeField]
@@ -93,6 +94,7 @@ public class Player : MonoBehaviour
         {
             if (_speedShot <= 0)
             {
+                _particleShot.Play();
                 Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
                 _speedShot = _constSpeedShot;
             }
@@ -100,6 +102,10 @@ public class Player : MonoBehaviour
             {
                 _speedShot -= Time.fixedDeltaTime;
             }
+        }
+        else
+        {
+            _particleShot.Stop();
         }
         if (_enemyTarget != null)
         {

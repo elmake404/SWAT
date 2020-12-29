@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     private float _speedMove;
     void Start()
     {
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 2);
     }
 
     void FixedUpdate()

@@ -111,7 +111,7 @@ MonoBehaviour:
   _rbHead: {fileID: 8670226178275260899}
   _rbBodies: {fileID: 7742749859515596369}
   _ragdoll: {fileID: 9216369806515962749}
-  _forseShot: 500
+  _forseShot: 2000
   _heals: 3
   Life: 0
 --- !u!1 &9966241654120529
