@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 951a70034aadd3e4483edfa1882da602
+<<<<<<< HEAD:RockClimber/Assets/3D Objects/Animations/AnimationClip.meta
+guid: 85ee476b98ef9704f9db905d258392b4
+=======
+guid: 3b664d8189bbe72459415c7e1656f339
+>>>>>>> 1e757e348799b123e254ab346e29909832f60953:RockClimber/Assets/FXIFIED/Stylized Explosion Effects 1/URP.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
