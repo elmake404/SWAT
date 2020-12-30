@@ -10,6 +10,8 @@ public class EnemyLife : MonoBehaviour
     private Rigidbody _rbMain, _rbHead, _rbBodies;
     [SerializeField]
     private GameObject _ragdoll;
+    [SerializeField]
+    private ParticleSystem _shotHead, _shotBodies;
 
 
     [SerializeField]
@@ -21,10 +23,13 @@ public class EnemyLife : MonoBehaviour
     public bool Life;
     private void Awake()
     {
+        CanvasManager.NamberEnemy++;
         Life = true;
     }
     public void Headshot()
     {
+        _shotHead.transform.SetParent(null);
+        _shotHead.Play();
         Death();
         ShotHeand();
     }
@@ -33,12 +38,15 @@ public class EnemyLife : MonoBehaviour
         _heals--;
         if (_heals == 0)
         {
+            _shotBodies.transform.SetParent(null);
+            _shotBodies.Play();
             Death();
             BodyHeand();
         }
     }
     public void Death()
     {
+        CanvasManager.CanvasMain.AddProgress();
         Life = false;
         _rbBodies.isKinematic = false;
         for (int i = 0; i < _colliders.Length; i++)

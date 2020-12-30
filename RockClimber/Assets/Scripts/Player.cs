@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _forceJump, _speedShot, _speedMoveDown, _speedMoveUp;
     private float _constSpeedShot;
-    private bool _isEnemyAtGunpoint;
     private void Awake()
     {
         _constSpeedShot = _speedShot;
@@ -33,42 +32,51 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (CanvasManager.IsStartGeme)
         {
-            _startMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            if (_startMosePos == Vector3.zero)
+            if (Input.GetMouseButtonDown(0))
             {
                 _startMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
             }
-
-            _currentMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
-            float window = (_startMosePos.y - _currentMosePos.y) > 0 ? 0.015f : -0.015f;
-
-            Vector3 StartPosMose = _startMosePos;
-            StartPosMose.y -= window;
-            if (Mathf.Abs((_currentMosePos.y - _startMosePos.y) * 8) > 1)
+            else if (Input.GetMouseButton(0))
             {
-                float yStart = ((_currentMosePos.y - _startMosePos.y) > 0 ? 0.125f : -0.125f);
-                _startMosePos.y = _currentMosePos.y - yStart;
-            }
-
-            float Y = 0;
-
-            if (Mathf.Abs(_startMosePos.y - _currentMosePos.y) >= 0.015f)
-            {
-                if (((_currentMosePos.y - StartPosMose.y) * 8) <= 0)
+                if (_startMosePos == Vector3.zero)
                 {
-                    Y = ((_currentMosePos.y - StartPosMose.y) * 8) * _speedMoveDown;
+                    _startMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
+                }
+
+                _currentMosePos = _cam.ScreenToViewportPoint(Input.mousePosition);
+                float window = (_startMosePos.y - _currentMosePos.y) > 0 ? 0.015f : -0.015f;
+
+                Vector3 StartPosMose = _startMosePos;
+                StartPosMose.y -= window;
+                if (Mathf.Abs((_currentMosePos.y - _startMosePos.y) * 8) > 1)
+                {
+                    float yStart = ((_currentMosePos.y - _startMosePos.y) > 0 ? 0.125f : -0.125f);
+                    _startMosePos.y = _currentMosePos.y - yStart;
+                }
+
+                float Y = 0;
+
+                if (Mathf.Abs(_startMosePos.y - _currentMosePos.y) >= 0.015f)
+                {
+                    if (((_currentMosePos.y - StartPosMose.y) * 8) <= 0)
+                    {
+                        Y = ((_currentMosePos.y - StartPosMose.y) * 8) * _speedMoveDown;
+                    }
+                    else
+                    {
+                        Y = ((_currentMosePos.y - StartPosMose.y) * 8) * _speedMoveUp;
+                    }
+
+                    _direcrionVector = new Vector3(0, Y, 0);
                 }
                 else
                 {
-                    Y = ((_currentMosePos.y - StartPosMose.y) * 8) * _speedMoveUp;
+                    _direcrionVector = _rbMain.velocity;
+                    _direcrionVector.y = 0;
                 }
 
-                _direcrionVector = new Vector3(0, Y, 0);
             }
             else
             {
@@ -77,41 +85,39 @@ public class Player : MonoBehaviour
             }
 
         }
-        else
-        {
-            _direcrionVector = _rbMain.velocity;
-            _direcrionVector.y = 0;
-        }
     }
     private void FixedUpdate()
     {
-        ControlPosition();
-        transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
-        _direcrionVector.x = _rbMain.velocity.x;
-        _rbMain.velocity = _direcrionVector;
-
-        if (/*_isEnemyAtGunpoint*/ Mathf.Round(_rbMain.velocity.y) == 0 /*&& _enemyTarget != null*/)
+        if (CanvasManager.IsStartGeme)
         {
-            if (_speedShot <= 0)
+            ControlPosition();
+            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
+            _direcrionVector.x = _rbMain.velocity.x;
+            _rbMain.velocity = _direcrionVector;
+
+            if (/*_isEnemyAtGunpoint*/ Mathf.Round(_rbMain.velocity.y) == 0 /*&& _enemyTarget != null*/)
             {
-                _particleShot.Play();
-                Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
-                _speedShot = _constSpeedShot;
+                if (_speedShot <= 0)
+                {
+                    _particleShot.Play();
+                    Instantiate(_bullet, _shotPos.position, _shotPos.rotation);
+                    _speedShot = _constSpeedShot;
+                }
+                else
+                {
+                    _speedShot -= Time.fixedDeltaTime;
+                }
             }
             else
             {
-                _speedShot -= Time.fixedDeltaTime;
+                _particleShot.Stop();
             }
-        }
-        else
-        {
-            _particleShot.Stop();
-        }
-        if (_enemyTarget != null)
-        {
-            Vector3 PosEnemy = _enemyTarget.transform.position;
-            PosEnemy.y = transform.position.y;
-            _arm.LookAt(PosEnemy);
+            if (_enemyTarget != null)
+            {
+                Vector3 PosEnemy = _enemyTarget.transform.position;
+                PosEnemy.y = transform.position.y;
+                _arm.LookAt(PosEnemy);
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -126,6 +132,7 @@ public class Player : MonoBehaviour
         if (other.tag == "Thorns")
         {
             //Debug.Log(other.name);
+            CanvasManager.IsLoseGame=true;
             Destroy(gameObject);
         }
     }
@@ -135,7 +142,6 @@ public class Player : MonoBehaviour
             ||(_enemyTarget.transform.position-transform.position).sqrMagnitude> (other.transform.position - transform.position).sqrMagnitude))
         {
             _enemyTarget = other.gameObject;
-            _isEnemyAtGunpoint = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -143,7 +149,6 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 12)
         {
             _enemyTarget = null;
-            _isEnemyAtGunpoint = false;
         }
     }
     private void ControlPosition()
@@ -155,7 +160,6 @@ public class Player : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, Pos, 0.7f);
         }
     }
-
     public Collider GetFeet()
     {
         return _feetCollider;
