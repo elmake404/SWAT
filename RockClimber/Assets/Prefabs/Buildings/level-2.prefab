@@ -1050,7 +1050,7 @@ GameObject:
   - component: {fileID: 776388196922906400}
   - component: {fileID: 5499265109050630834}
   - component: {fileID: 2158356762108553954}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RoomCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
