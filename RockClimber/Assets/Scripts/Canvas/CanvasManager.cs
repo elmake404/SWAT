@@ -33,7 +33,7 @@ public class CanvasManager : MonoBehaviour
         }
         else
         {
-            CanvasManager.IsStartGeme = true;
+            IsStartGeme = true;
         }
     }
 
