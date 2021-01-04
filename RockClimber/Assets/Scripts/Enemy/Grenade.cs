@@ -17,9 +17,14 @@ public class Grenade : MonoBehaviour
     private float _pointPos;
     [SerializeField]
     private float _speed, _explosionRadius;
+    [SerializeField]
+    [Range(0,1f)]
+    private float _timeExplosion;
+    private float _time;
     void Start()
     {
         _sphereCollider.enabled = false;
+        _time = 1f - _timeExplosion;
     }
 
     void FixedUpdate()
@@ -31,18 +36,18 @@ public class Grenade : MonoBehaviour
         }
         else if(_mesh.enabled)
         {
-            StartCoroutine(Destroy());
+            StartCoroutine(Explosion());
         }
     }
-    private IEnumerator Destroy()
+    private IEnumerator Explosion()
     {
         _sphereCollider.radius = _explosionRadius;
         _sphereCollider.enabled = true;
         _mesh.enabled = false;
         _explosion.Play();
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(_timeExplosion);
         _sphereCollider.enabled = false;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(_time);
 
         Destroy(gameObject);
 
