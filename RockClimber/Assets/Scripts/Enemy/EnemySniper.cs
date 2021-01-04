@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySniper : MonoBehaviour
 {
     [SerializeField]
-    private Transform _shotPos, _arm;
+    private Transform _shotPos, _arm, _shotgunMod, _shotgunPos;
     [SerializeField]
     private BulletEnemy _bullet;
     private Player _player;
@@ -23,6 +23,7 @@ public class EnemySniper : MonoBehaviour
     }
     void FixedUpdate()
     {
+        _shotgunMod.SetPositionAndRotation(_shotgunPos.position,_shotgunPos.rotation);
         if (_player != null)
         {
             if (!_isAtGunpoint)

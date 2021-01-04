@@ -36,10 +36,11 @@ public class EnemyLife : MonoBehaviour
     public void BodyShot()
     {
         _heals--;
+        _shotBodies.Play();
+
         if (_heals == 0)
         {
             _shotBodies.transform.SetParent(null);
-            _shotBodies.Play();
             Death();
             BodyHeand();
         }

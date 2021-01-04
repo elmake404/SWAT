@@ -183,6 +183,7 @@ MonoBehaviour:
   _mesh: {fileID: 9039708441144384453}
   _speed: 0.03
   _explosionRadius: 3.5
+  _timeExplosion: 0.7
 --- !u!135 &2053543590605734548
 SphereCollider:
   m_ObjectHideFlags: 0
