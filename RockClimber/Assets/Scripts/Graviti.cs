@@ -29,6 +29,11 @@ public class Graviti : MonoBehaviour
     {
         _directionGraviti *= -1;
     }
+    public void AddForceGraviti(float forse)
+    {
+        _rbMain.AddForce(_directionGraviti * forse, ForceMode.Acceleration);
+
+    }
     [ContextMenu("GetRigidbody")]
     public void GetRigidbody()
     {
