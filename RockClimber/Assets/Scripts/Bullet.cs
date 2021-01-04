@@ -50,6 +50,10 @@ public class Bullet : MonoBehaviour
         }
         if (other.tag == "Enemy")
         {
+            if (other.GetComponent<EnemyLife>()==null)
+            {
+                Debug.Log(other.name);
+            }
             other.GetComponent<EnemyLife>().BodyShot();
             Destroy(gameObject);
         }

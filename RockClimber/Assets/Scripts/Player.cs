@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Bullet _bullet;
     private Camera _cam;
-    private Vector3 _startMosePos, _currentMosePos, _direcrionVector,_startPosPlayer;
+    private Vector3 _startMosePos, _currentMosePos, _direcrionVector, _startPosPlayer;
     [SerializeField]
     private Transform _shotPos, _arm;
     [SerializeField]
@@ -94,8 +94,10 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
             _direcrionVector.x = _rbMain.velocity.x;
             _rbMain.velocity = _direcrionVector;
+            RaycastHit hit;
 
-            if (/*_isEnemyAtGunpoint*/ Mathf.Round(_rbMain.velocity.y) == 0 /*&& _enemyTarget != null*/)
+            if (Mathf.Round(_rbMain.velocity.y) == 0 &&
+                Physics.Raycast(_shotPos.position, _shotPos.forward, out hit) && hit.collider.tag != "Wall")
             {
                 if (_speedShot <= 0)
                 {
@@ -132,14 +134,14 @@ public class Player : MonoBehaviour
         if (other.tag == "Thorns")
         {
             //Debug.Log(other.name);
-            CanvasManager.IsLoseGame=true;
+            CanvasManager.IsLoseGame = true;
             Destroy(gameObject);
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == 12  && (_enemyTarget == null
-            ||(_enemyTarget.transform.position-transform.position).sqrMagnitude> (other.transform.position - transform.position).sqrMagnitude))
+        if (other.gameObject.layer == 12 && (_enemyTarget == null
+            || (_enemyTarget.transform.position - transform.position).sqrMagnitude > (other.transform.position - transform.position).sqrMagnitude))
         {
             _enemyTarget = other.gameObject;
         }
