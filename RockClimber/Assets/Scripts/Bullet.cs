@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
         transform.position = posShot;
         _break.Play();
         _break.transform.SetParent(null);
-        //Destroy(_break);
+        Destroy(_break.gameObject,1);
         Destroy(gameObject);
     }
 }

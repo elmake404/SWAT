@@ -26,6 +26,7 @@ public class CanvasManager : MonoBehaviour
     private void Start()
     {
         _fillNaber = 1f / NamberEnemy;
+        NamberEnemy = 0;
         if (!IsGameFlow)
         {
             _menuUI.SetActive(true);
@@ -48,6 +49,10 @@ public class CanvasManager : MonoBehaviour
         if (!_wimIU.activeSelf && IsWinGame)
         {
             IsStartGeme = false;
+
+            PlayerPrefs.SetInt("Scenes", PlayerPrefs.GetInt("Scenes") + 1);
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+
             _inGameUI.SetActive(false);
             _wimIU.SetActive(true);
         }
@@ -55,7 +60,6 @@ public class CanvasManager : MonoBehaviour
         if (!_lostUI.activeSelf && IsLoseGame)
         {
             IsStartGeme = false;
-
             _inGameUI.SetActive(false);
             _lostUI.SetActive(true);
         }
@@ -65,7 +69,7 @@ public class CanvasManager : MonoBehaviour
         if (_namberProgresBar > _progresBar.fillAmount)
         {
             _progresBar.fillAmount += 0.02f;
-            if (_progresBar.fillAmount>=1)
+            if (_progresBar.fillAmount >= 1)
             {
                 IsWinGame = true;
             }
