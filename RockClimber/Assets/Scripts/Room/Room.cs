@@ -4,25 +4,20 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other == Player.PlayerMain.GetFeet())
-        {
-            other.GetComponentInParent<Graviti>().RevertGraviti();
-        }
-    }
     private void OnTriggerStay(Collider other)
     {
         if (other == Player.PlayerMain.GetFeet())
         {
-            other.GetComponentInParent<Graviti>().AddForceGraviti(20);
+            var graviti = other.GetComponentInParent<Graviti>();
+            graviti.AddForceGraviti(35);
+            graviti.ReverseGraviti();
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other == Player.PlayerMain.GetFeet())
         {
-            other.GetComponentInParent<Graviti>().RevertGraviti();
+            other.GetComponentInParent<Graviti>().DefaultGraviti();
         }
     }
 }

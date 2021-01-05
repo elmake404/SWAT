@@ -9,29 +9,40 @@ public class Graviti : MonoBehaviour
     private Rigidbody _rbMain;
     [SerializeField]
     private Vector3 _directionGraviti;
+    [SerializeField]
+    private Vector3 _direction;
     private void Start()
     {
+
         if (_directionGraviti==Vector3.zero)
         {
             _directionGraviti = Vector3.down;
         }
+
         if (_rbMain==null)
         {
             Debug.Log(name+ " absent Rigidbody");
         }
+        DefaultGraviti();
+
     }
 
     private void FixedUpdate()
     {
         _rbMain.AddForce(_directionGraviti*9.8f,ForceMode.Acceleration);
     }
-    public void RevertGraviti()
+    public void ReverseGraviti()
     {
-        _directionGraviti *= -1;
+        _direction = _directionGraviti *-1;
     }
+    public void DefaultGraviti()
+    {
+        _direction = _directionGraviti;
+    }
+
     public void AddForceGraviti(float forse)
     {
-        _rbMain.AddForce(_directionGraviti * forse, ForceMode.Acceleration);
+        _rbMain.AddForce(_direction * forse, ForceMode.Acceleration);
 
     }
     [ContextMenu("GetRigidbody")]
