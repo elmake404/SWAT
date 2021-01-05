@@ -17,11 +17,12 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(Vector3.forward * _speedMove);
         RaycastHit hit;
-        if (Physics.Raycast(transform.position,-transform.forward,out hit,10))
+        Vector3 Pos = transform.position + (transform.forward * (-10));
+        if (Physics.Raycast(Pos, transform.forward,out hit,10))
         {
             if (hit.collider.tag == "Wall")
             {
-                BulletHit();
+                BulletHit(hit.point);
             }
             else if (hit.collider.tag == "Glass")
             {
@@ -30,19 +31,21 @@ public class Bullet : MonoBehaviour
             else if (hit.collider.tag == "Head")
             {
                 hit.collider.GetComponentInParent<EnemyLife>().Headshot();
-                BulletHit();
+                BulletHit(hit.point);
             }
             else if (hit.collider.tag == "Enemy")
             {
                 hit.collider.GetComponent<EnemyLife>().BodyShot();
-                BulletHit();
+                BulletHit(hit.point);
             }
         }
     }
-    private void BulletHit()
+    private void BulletHit(Vector3 posShot)
     {
+        transform.position = posShot;
         _break.Play();
         _break.transform.SetParent(null);
+        //Destroy(_break);
         Destroy(gameObject);
     }
 }
