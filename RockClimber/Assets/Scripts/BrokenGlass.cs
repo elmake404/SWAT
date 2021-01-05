@@ -8,7 +8,7 @@ public class BrokenGlass : MonoBehaviour
     private Rigidbody _rbMain;
     void Start()
     {
-        _rbMain.AddForce(transform.right*200);
+        _rbMain.AddForce(-transform.right*200);
         Destroy(gameObject,2);
     }
 

@@ -15,23 +15,28 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         _offSet = _target.transform.position - transform.position;
-        _cameraPos = new Vector3(transform.position.x, _target.transform.position.y - _offSet.y, transform.position.z);
+        _cameraPos = new Vector3(transform.position.x,TargetCam(), transform.position.z);
     }
 
     void FixedUpdate()
     {
-        //if (_target!= null)
-        //{
-        //    if (_target.transform.position.y > transform.position.y + _topWindow)
-        //    {
-        //        _cameraPos = new Vector3(transform.position.x, _target.transform.position.y - _topWindow, transform.position.z);
-        //    }
-        //    else if (_target.transform.position.y < transform.position.y - _bottomWindow)
-        //    {
-        //        _cameraPos = new Vector3(transform.position.x, _target.transform.position.y + _bottomWindow, transform.position.z);
-        //    }
+        if (_target != null)
+        {
+            if (_target.transform.position.y > (transform.position.y + _offSet.y) + _topWindow)
+            {
+                _cameraPos = new Vector3(transform.position.x, TargetCam() - _topWindow, transform.position.z);
+            }
+            else if (_target.transform.position.y < (transform.position.y + _offSet.y) - _bottomWindow)
+            {
+                _cameraPos = new Vector3(transform.position.x, TargetCam() + _bottomWindow, transform.position.z);
+            }
 
-        //    transform.position = Vector3.SmoothDamp(transform.position, _cameraPos, ref velocity, 0.07f);
-        //}
+            transform.position = Vector3.SmoothDamp(transform.position, _cameraPos, ref velocity, 0.07f);
+        }
+    }
+
+    private float TargetCam()
+    {
+        return _target.transform.position.y - _offSet.y;
     }
 }
