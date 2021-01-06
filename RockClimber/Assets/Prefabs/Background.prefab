@@ -325,6 +325,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clouds
       objectReference: {fileID: 0}
+    - target: {fileID: 6155054895918216511, guid: d6da2360333025246a3e0ab29dd38f8c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6782690959236509573, guid: d6da2360333025246a3e0ab29dd38f8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -489,6 +494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bg city
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bf00304a20b0d3948aeb6bb43dbd0844,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf00304a20b0d3948aeb6bb43dbd0844, type: 3}

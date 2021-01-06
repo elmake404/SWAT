@@ -11,6 +11,7 @@ TagManager:
   - ActivationZone
   - Glass
   - Head
+  - FX
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - ShotPlayer
   - Enemy
   - WallPlayer
-  - 
+  - Sky
   - 
   - 
   - 
