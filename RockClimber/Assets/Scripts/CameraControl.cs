@@ -14,6 +14,8 @@ public class CameraControl : MonoBehaviour
 
     void Start()
     {
+        _topWindow = 6;
+        _bottomWindow = 3;
         _offSet = _target.transform.position - transform.position;
         _cameraPos = new Vector3(transform.position.x,TargetCam(), transform.position.z);
     }

@@ -9,7 +9,7 @@ public class Room : MonoBehaviour
         if (other == Player.PlayerMain.GetFeet())
         {
             var graviti = other.GetComponentInParent<Graviti>();
-            graviti.AddForceGraviti(35);
+            graviti.AddForceGraviti(25);
             graviti.ReverseGraviti();
         }
     }

@@ -8,8 +8,9 @@ public class Hook : MonoBehaviour
     private Vector3 _offSet;
     void Start()
     {
+        
         _player = Player.PlayerMain.transform;
-        transform.Translate(Vector3.up *7);
+        transform.Translate(Vector3.up *10);
         _offSet = _player.position - transform.position;
     }
 

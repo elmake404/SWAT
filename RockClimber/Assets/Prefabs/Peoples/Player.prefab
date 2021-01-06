@@ -547,7 +547,7 @@ MonoBehaviour:
   - {fileID: 1426634507195457213}
   - {fileID: 5653608697583907640}
   _ragdoll: {fileID: 4050101823626276836}
-  _forceJump: 20
+  _forceJump: 17.5
   _speedShot: 0.16
   _speedMoveDown: 25
   _speedMoveUp: 25
