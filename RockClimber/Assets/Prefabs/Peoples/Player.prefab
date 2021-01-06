@@ -323,7 +323,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3060704803635761801}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -522,6 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rbMain: {fileID: 1395772203182719398}
   _directionGraviti: {x: -3, y: 0, z: 0}
+  _direction: {x: 0, y: 0, z: 0}
 --- !u!114 &676916606674920736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,6 +867,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 8259463438762220577, guid: bff8d340fbc91ff4eb7429b38ac37bae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8543047945585018136, guid: bff8d340fbc91ff4eb7429b38ac37bae,
         type: 3}
       propertyPath: m_Layer
@@ -884,7 +890,7 @@ PrefabInstance:
     - target: {fileID: 8778732352954156699, guid: bff8d340fbc91ff4eb7429b38ac37bae,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.105
       objectReference: {fileID: 0}
     - target: {fileID: 8778732352954156699, guid: bff8d340fbc91ff4eb7429b38ac37bae,
         type: 3}
