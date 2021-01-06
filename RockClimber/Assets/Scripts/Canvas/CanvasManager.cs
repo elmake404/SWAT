@@ -27,6 +27,10 @@ public class CanvasManager : MonoBehaviour
     }
     private void Start()
     {
+        if (PlayerPrefs.GetInt("Level") <= 0)
+        {
+            PlayerPrefs.SetInt("Level", 1);
+        }
         _txtGameUICurentLevel.text = PlayerPrefs.GetInt("Level").ToString();
         _txtGameUITargetLevel.text = (PlayerPrefs.GetInt("Level") + 1).ToString();
         _txtWinUI.text = "Level " + PlayerPrefs.GetInt("Level");
