@@ -4889,9 +4889,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 508638429083515633}
     m_Modifications:
+    - target: {fileID: 1127226951305888, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205103054961908, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655383994386584, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1879272669879180, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
       propertyPath: m_Name
       value: Bullet_GoldFire_Big_Impact_Template
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947723841646622, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4541196389373984, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4939,15 +4955,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4541196389373984, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4541196389373984, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4541196389373984, guid: 52baafc6c69151e418a228e14e1bd356, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 198160945960651690, guid: 52baafc6c69151e418a228e14e1bd356,
         type: 3}
