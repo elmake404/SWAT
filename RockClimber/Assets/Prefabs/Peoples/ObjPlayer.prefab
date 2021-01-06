@@ -69,21 +69,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 676916606674920736, guid: 05250728b3f3e6445944077719559269,
-        type: 3}
-      propertyPath: _speedShot
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 676916606674920736, guid: 05250728b3f3e6445944077719559269,
-        type: 3}
-      propertyPath: _speedMoveUp
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 676916606674920736, guid: 05250728b3f3e6445944077719559269,
-        type: 3}
-      propertyPath: _speedMoveDown
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 684901742937747426, guid: 05250728b3f3e6445944077719559269,
         type: 3}
       propertyPath: m_LocalScale.x

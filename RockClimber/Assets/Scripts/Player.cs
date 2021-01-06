@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private ParticleSystem _particleShot;
     [SerializeField]
-    private Rigidbody _rbMain;
+    private Rigidbody _rbMain,_rbPelvis;
     [SerializeField]
     private Bullet _bullet;
     private Camera _cam;
@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
     private Collider _feetCollider;
     [SerializeField]
     private GameObject _enemyTarget;
+    [SerializeField]
+    private Collider[] _collidersMain;
+    [SerializeField]
+    private GameObject _ragdoll;
 
     [SerializeField]
     private float _forceJump, _speedShot, _speedMoveDown, _speedMoveUp;
@@ -122,6 +126,19 @@ public class Player : MonoBehaviour
             }
         }
     }
+    private void Death()
+    {
+        for (int i = 0; i < _collidersMain.Length; i++)
+        {
+            _collidersMain[i].enabled = false;
+        }
+        _ragdoll.SetActive(true);
+        _rbMain.useGravity = true;
+        gameObject.AddComponent<FixedJoint>().connectedBody=_rbPelvis;
+        _rbMain.constraints = RigidbodyConstraints.None;
+        enabled = false;
+
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 8)
@@ -135,7 +152,7 @@ public class Player : MonoBehaviour
         {
             //Debug.Log(other.name);
             CanvasManager.IsLoseGame = true;
-            Destroy(gameObject);
+            Death();
         }
     }
     private void OnTriggerStay(Collider other)

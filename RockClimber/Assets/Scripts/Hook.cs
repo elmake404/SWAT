@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    [SerializeField]
     private Transform _player;
-    private Vector3 _startPosPlayer,_startPosHook;
+    private Vector3 _offSet;
     void Start()
     {
-        //transform.Translate(Vector3.down * 2);
-        _startPosPlayer = _player.position;
-        _startPosHook = transform.position;
+        _player = Player.PlayerMain.transform;
+        transform.Translate(Vector3.up *15);
+        _offSet = _player.position - transform.position;
     }
 
     void FixedUpdate()
     {
         Vector3 pos = transform.position;
-       pos.y = (_startPosHook+ (_startPosPlayer - _player.position)-(_startPosPlayer - _player.position)/10).y;
+        pos.y = (_player.position - _offSet).y;
         transform.position = pos;
     }
 }

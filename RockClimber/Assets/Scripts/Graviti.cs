@@ -9,7 +9,6 @@ public class Graviti : MonoBehaviour
     private Rigidbody _rbMain;
     [SerializeField]
     private Vector3 _directionGraviti;
-    [SerializeField]
     private Vector3 _direction;
     private void Start()
     {
@@ -29,7 +28,10 @@ public class Graviti : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rbMain.AddForce(_directionGraviti*9.8f,ForceMode.Acceleration);
+        if (!_rbMain.useGravity)
+        {
+            _rbMain.AddForce(_directionGraviti * 9.8f, ForceMode.Acceleration);
+        }
     }
     public void ReverseGraviti()
     {
