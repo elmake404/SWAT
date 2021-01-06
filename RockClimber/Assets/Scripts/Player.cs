@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private ParticleSystem _particleShot;
     [SerializeField]
-    private Rigidbody _rbMain,_rbPelvis;
+    private Rigidbody _rbMain, _rbPelvis;
     [SerializeField]
     private Bullet _bullet;
     private Camera _cam;
@@ -126,19 +126,6 @@ public class Player : MonoBehaviour
             }
         }
     }
-    private void Death()
-    {
-        for (int i = 0; i < _collidersMain.Length; i++)
-        {
-            _collidersMain[i].enabled = false;
-        }
-        _ragdoll.SetActive(true);
-        _rbMain.useGravity = true;
-        gameObject.AddComponent<FixedJoint>().connectedBody=_rbPelvis;
-        _rbMain.constraints = RigidbodyConstraints.None;
-        enabled = false;
-
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 8)
@@ -148,9 +135,8 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Thorns")
+        if (other.tag == "Thorns" && !CanvasManager.IsWinGame)
         {
-            //Debug.Log(other.name);
             CanvasManager.IsLoseGame = true;
             Death();
         }
@@ -178,6 +164,19 @@ public class Player : MonoBehaviour
             Pos.y = _startPosPlayer.y;
             transform.position = Vector3.MoveTowards(transform.position, Pos, 0.7f);
         }
+    }
+    private void Death()
+    {
+        for (int i = 0; i < _collidersMain.Length; i++)
+        {
+            _collidersMain[i].enabled = false;
+        }
+        _ragdoll.SetActive(true);
+        _rbMain.useGravity = true;
+        gameObject.AddComponent<FixedJoint>().connectedBody = _rbPelvis;
+        _rbMain.constraints = RigidbodyConstraints.None;
+        enabled = false;
+
     }
     public Collider GetFeet()
     {

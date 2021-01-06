@@ -56,7 +56,8 @@ MonoBehaviour:
   _arm: {fileID: 9199238542649725402}
   _shotgunMod: {fileID: 707419690378727095}
   _shotgunPos: {fileID: 7323118859482656781}
-  _bullet: {fileID: 1221532494556268895, guid: 8cafa8bff1dec524d83ad3c8b74d9ec2, type: 3}
+  _bullet: {fileID: -2206989064891730648, guid: 8f709eb57d5a9f94783f298194c84b58,
+    type: 3}
   _enemyLife: {fileID: 8038435002810306869}
   _speedRot: 0.1
   _delayShot: 1

@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-
+    [SerializeField]
+    private GameObject _tyutorialUI;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            CanvasManager.IsStartGeme = true;
-            gameObject.SetActive(false);
+            if (PlayerPrefs.GetInt("FirstEntey")<=0)
+            {
+                gameObject.SetActive(false);
+                _tyutorialUI.SetActive(true);
+                PlayerPrefs.SetInt("FirstEntey", 1);
+            }
+            else
+            {
+                CanvasManager.IsStartGeme = true;
+                gameObject.SetActive(false);
+            }
         }
     }
 }

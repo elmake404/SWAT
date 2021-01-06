@@ -831,6 +831,9 @@ MonoBehaviour:
   _wimIU: {fileID: 1326874676435430}
   _lostUI: {fileID: 1401342752598832}
   _progresBar: {fileID: 114592505259201384}
+  _txtGameUICurentLevel: {fileID: 114298626813103218}
+  _txtGameUITargetLevel: {fileID: 114444994017357224}
+  _txtWinUI: {fileID: 114571137488477882}
 --- !u!223 &223925975332372032
 Canvas:
   m_ObjectHideFlags: 0
@@ -993,6 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bce001d9e37594291480df474b5f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tyutorialUI: {fileID: 1951412119994642024}
 --- !u!1 &1169145266511526
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,7 +4031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &224832676708051068
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6949,14 +6953,14 @@ GameObject:
   - component: {fileID: 4685679611006082511}
   - component: {fileID: 8363379170897567375}
   - component: {fileID: 952170441213594932}
-  - component: {fileID: 4882089547494547458}
+  - component: {fileID: 6535792523066552712}
   m_Layer: 5
   m_Name: TutorialUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4685679611006082511
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7016,7 +7020,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4882089547494547458
+--- !u!114 &6535792523066552712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7025,7 +7029,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1951412119994642024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56bce001d9e37594291480df474b5f7a, type: 3}
+  m_Script: {fileID: 11500000, guid: ddf71dad64c1833449f64abfaf2352c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3242053704293368738

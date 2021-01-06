@@ -15,6 +15,8 @@ public class CanvasManager : MonoBehaviour
     private GameObject _menuUI, _inGameUI, _wimIU, _lostUI;
     [SerializeField]
     private Image _progresBar;
+    [SerializeField]
+    private Text _txtGameUICurentLevel, _txtGameUITargetLevel, _txtWinUI;
 
     private float _fillNaber, _namberProgresBar;
     private void Awake()
@@ -25,6 +27,10 @@ public class CanvasManager : MonoBehaviour
     }
     private void Start()
     {
+        _txtGameUICurentLevel.text = PlayerPrefs.GetInt("Level").ToString();
+        _txtGameUITargetLevel.text = (PlayerPrefs.GetInt("Level") + 1).ToString();
+        _txtWinUI.text = "Level " + PlayerPrefs.GetInt("Level");
+
         _fillNaber = 1f / NamberEnemy;
         NamberEnemy = 0;
         if (!IsGameFlow)
