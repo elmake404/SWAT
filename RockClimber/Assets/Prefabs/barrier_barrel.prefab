@@ -112,7 +112,7 @@ MonoBehaviour:
   _explosion: {fileID: 5795281310278211780}
   _meshRenderer: {fileID: 23137875583604886}
   radius: 5
-  force: 20000
+  force: 50000
 --- !u!1001 &3095175405910972165
 PrefabInstance:
   m_ObjectHideFlags: 0
