@@ -125,6 +125,11 @@ public class Player : MonoBehaviour
                 _arm.LookAt(PosEnemy);
             }
         }
+        else
+        {
+            _particleShot.Stop();
+
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {

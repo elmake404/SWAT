@@ -79,7 +79,7 @@ public class CanvasManager : MonoBehaviour
         if (_namberProgresBar > _progresBar.fillAmount)
         {
             _progresBar.fillAmount += 0.02f;
-            if (_progresBar.fillAmount >= 1)
+            if (_progresBar.fillAmount >= 1 && !IsLoseGame)
             {
                 IsWinGame = true;
             }

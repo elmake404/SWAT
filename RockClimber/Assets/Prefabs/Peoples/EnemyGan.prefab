@@ -60,9 +60,8 @@ MonoBehaviour:
     type: 3}
   _speedRot: 0.01
   _delayShot: 0.5
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 1335
+  _upActivation: 7
+  _downActivtion: -5
 --- !u!136 &7590016774885596119
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -59,12 +59,12 @@ MonoBehaviour:
   _bullet: {fileID: -2206989064891730648, guid: 8f709eb57d5a9f94783f298194c84b58,
     type: 3}
   _enemyLife: {fileID: 8038435002810306869}
-  _speedRot: 0.1
-  _delayShot: 1
+  _speedRot: 0.15
+  _delayShot: 0.7
   _layerMask:
     serializedVersion: 2
     m_Bits: 0
-  _upActivation: 10
+  _upActivation: 7
   _downActivtion: -5
 --- !u!136 &7590016774885596119
 CapsuleCollider:

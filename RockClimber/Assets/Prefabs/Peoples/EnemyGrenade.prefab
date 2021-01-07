@@ -4859,6 +4859,8 @@ MonoBehaviour:
   _animator: {fileID: 508217490578712054}
   _grenade: {fileID: 5383951826060330108, guid: c4f32800a36e8cf4eb63651c45753c1c,
     type: 3}
+  _upActivation: 7
+  _downActivtion: -5
   _timeSpawnGrenade: 1
 --- !u!136 &5984839482713662105
 CapsuleCollider:
