@@ -118,7 +118,7 @@ MonoBehaviour:
   _shotHead: {fileID: 7042920540889455867}
   _shotBodies: {fileID: 3593392982588501267}
   _forseShot: 2000
-  _heals: 3
+  _heals: 2
   Life: 0
 --- !u!1 &9966241654120529
 GameObject:
