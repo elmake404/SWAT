@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliders:
-  - {fileID: 1736042401065690966}
+  - {fileID: 6487304831311167081}
   - {fileID: 7590016774885596119}
   _rbMain: {fileID: 7912142440092509056}
   _rbHead: {fileID: 1709756657271358498}
@@ -5200,7 +5200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5373077361455095412}
-  - component: {fileID: 1736042401065690966}
+  - component: {fileID: 6487304831311167081}
   m_Layer: 12
   m_Name: Head
   m_TagString: Head
@@ -5215,16 +5215,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3745436438545550820}
-  m_LocalRotation: {x: 0.2958747, y: -0.80671597, z: 0.076294154, w: 0.50581306}
-  m_LocalPosition: {x: 0.2559757, y: 1.1, z: -0.104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.12, y: 1.414, z: -0.104}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4534398475155837935}
   m_Father: {fileID: 9608645121721930}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1736042401065690966
-SphereCollider:
+--- !u!65 &6487304831311167081
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5234,8 +5234,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.40807033
-  m_Center: {x: -0.04212686, y: 0.33790338, z: -0.040380735}
+  m_Size: {x: 1, y: 0.80314565, z: 0.72987086}
+  m_Center: {x: 2.0876379e-11, y: 0.15157282, z: 0.014935373}
 --- !u!1 &7890356742877923241
 GameObject:
   m_ObjectHideFlags: 0
@@ -5262,7 +5262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7890356742877923241}
   m_LocalRotation: {x: -0.29637703, y: -0.060642503, z: 0.16403365, w: 0.9389229}
-  m_LocalPosition: {x: -0.108, y: 0.22, z: -0.114}
+  m_LocalPosition: {x: -0.059, y: -0.005, z: -0.114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5373077361455095412}

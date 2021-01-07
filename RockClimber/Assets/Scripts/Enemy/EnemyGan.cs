@@ -25,7 +25,8 @@ public class EnemyGan : MonoBehaviour
     }
     void FixedUpdate()
     {
-        _shotgun.transform.SetPositionAndRotation(_shotgunMod.transform.position, _shotgunMod.transform.rotation);
+        _shotgun.transform.SetPositionAndRotation
+            (_shotgunMod.transform.position, _shotgunMod.transform.rotation);
         if (!_lifeMain.Life)
         {
             Death();
