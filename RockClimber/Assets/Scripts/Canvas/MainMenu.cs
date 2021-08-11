@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("FirstEntey")<=0)
             {
-                FacebookManager.Instance.LevelStart(PlayerPrefs.GetInt("Level"));
+                //FacebookManager.Instance.LevelStart(PlayerPrefs.GetInt("Level"));
                 gameObject.SetActive(false);
                 _tyutorialUI.SetActive(true);
                 PlayerPrefs.SetInt("FirstEntey", 1);
